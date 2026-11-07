@@ -1,0 +1,14 @@
+{
+  "item.sanandreas.minigun": "Minigun",
+  "item.sanandreas.uzi": "Micro SMG",
+  "item.sanandreas.pistol": "Pistola",
+  "item.sanandreas.shotgun": "Escopeta",
+  "item.sanandreas.rpg": "Lanzacohetes",
+  "item.sanandreas.flamethrower": "Lanzallamas",
+  "item.sanandreas.ak47": "AK-47",
+  "item.sanandreas.m4": "M4",
+  "item.sanandreas.rocket": "Cohete",
+  "entity.sanandreas.rocket": "Cohete",
+  "key.sanandreas.reload": "Recargar arma",
+  "key.categories.sanandreas": "San Andreas Edition"
+}

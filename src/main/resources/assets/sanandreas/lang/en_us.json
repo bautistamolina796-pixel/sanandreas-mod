@@ -1,0 +1,14 @@
+{
+  "item.sanandreas.minigun": "Minigun",
+  "item.sanandreas.uzi": "Micro SMG",
+  "item.sanandreas.pistol": "Pistol",
+  "item.sanandreas.shotgun": "Shotgun",
+  "item.sanandreas.rpg": "Rocket Launcher",
+  "item.sanandreas.flamethrower": "Flamethrower",
+  "item.sanandreas.ak47": "AK-47",
+  "item.sanandreas.m4": "M4",
+  "item.sanandreas.rocket": "Rocket",
+  "entity.sanandreas.rocket": "Rocket",
+  "key.sanandreas.reload": "Reload weapon",
+  "key.categories.sanandreas": "San Andreas Edition"
+}
