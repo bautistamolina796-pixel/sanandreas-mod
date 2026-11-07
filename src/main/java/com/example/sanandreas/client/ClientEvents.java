@@ -89,6 +89,7 @@ public class ClientEvents {
         private static boolean useWasDown = false;
         private static int nextClientShot = 0;
         private static boolean renderingCj = false;
+        private static boolean renderingArm = false;
 
         /** Oculta corazones y armadura de vainilla (la vida va en el HUD de GTA). */
         @SubscribeEvent
@@ -162,16 +163,27 @@ public class ClientEvents {
             }
         }
 
-        /** Brazo en primera persona con el skin de CJ. */
+        /**
+         * Brazo en primera persona con el skin de CJ.
+         * OJO: Forge dispara este evento DENTRO de renderRightHand/renderLeftHand, asi que al llamarlos
+         * desde aca se vuelve a disparar. La bandera evita la recursion infinita.
+         */
         @SubscribeEvent
         public static void onRenderArm(RenderArmEvent event) {
+            if (renderingArm) return;
             CjRenderer cj = CjRenderer.get();
             if (cj == null) return;
+
             event.setCanceled(true);
-            if (event.getArm() == HumanoidArm.RIGHT) {
-                cj.renderRightHand(event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight(), event.getPlayer());
-            } else {
-                cj.renderLeftHand(event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight(), event.getPlayer());
+            renderingArm = true;
+            try {
+                if (event.getArm() == HumanoidArm.RIGHT) {
+                    cj.renderRightHand(event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight(), event.getPlayer());
+                } else {
+                    cj.renderLeftHand(event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight(), event.getPlayer());
+                }
+            } finally {
+                renderingArm = false;
             }
         }
     }
